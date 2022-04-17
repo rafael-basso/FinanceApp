@@ -1,3 +1,3 @@
 # Finance-App
 
-https://rafael-basso.github.io/Finance-App/
+https://rafael-basso.github.io/FinanceApp/
