@@ -6,7 +6,321 @@
   <title>Practice - DevFinance</title>
 
   <link rel="icon" href="./Images/money.png">
-  <link rel="stylesheet" href="/style.css">
+<!--   <link rel="stylesheet" href="/style.css"> -->
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(231, 239, 245);
+}
+
+:root {
+    --green: rgb(154, 245, 63);
+    --dark-blue: #363f5f;
+    --light-green: #3dd705;
+    --red: #e92929;
+}
+
+header {
+    background-color: var(--green);
+    padding: 3rem;
+}
+
+html {
+    font-size: 93.75%;
+}
+
+/* h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+
+    font-weight: normal;
+} */
+
+#logo {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+
+    /* background: -webkit-linear-gradient(rgb(18, 22, 18), rgb(156, 201, 156));
+    background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+}
+
+.container-main {
+    width: min(50vw, 600px);
+    margin: auto;    
+}
+
+/* CARDS */
+.image-card {
+    width: 30px;
+}
+
+.imgTable img {
+    padding-left: 2rem;
+    width: 50%;
+}
+
+section#values {
+    display: flex;
+    justify-content: center;
+
+    /* border: solid 1px black; */
+}
+
+div.card {
+    background-color: white;
+    
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+    border-radius: 0.25rem;   
+    border: solid 1px;
+
+    width: 100%;
+}
+
+div.card h3 {
+    font-size: 2rem;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+}
+
+div.card p {
+    font-size: 1.3rem;
+    font-weight: 200;
+
+    text-align: left;
+
+    margin-top: 2rem;
+
+    display: inline-flex;
+}
+
+div.card span {
+    font-size: 1.3rem;
+    font-weight: 200;
+
+    text-align: left;
+}
+
+/* TABLE */
+#data-table {
+    display: block;
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    color: #969cb3;
+
+    overflow-x: auto;
+    
+    margin-bottom: 2rem;
+}
+
+#data-table thead th,
+#data-table tbody td {  
+    width: 100vw;
+    
+    padding: 1rem 1rem;
+    text-align: left;    
+}
+
+thead th {
+    font-size: 2rem;
+    
+    /* background: -webkit-linear-gradient(rgb(18, 22, 18), rgb(156, 201, 156));
+    background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+}
+
+#data-table td {
+    font-size: 1.2rem;
+    color: black;
+
+    background-color: white;
+}
+
+#data-table td:first-child {
+    border-radius: 1rem 0 0 1rem;
+}
+
+#data-table td:last-child {
+    border-radius: 0 1rem 1rem 0;
+}
+
+#data-table td.description {
+    text-align: left;
+}
+
+table tbody tr {
+    opacity: 0.6;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+/* LINKS */
+.transaction a {    
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--green);
+}
+
+.transaction a:hover {
+    color: rgb(84, 133, 84);
+}
+
+/* .transaction a.a-link {
+    display: inline-block;
+} */
+
+/* FORM */
+div#form {
+    width: 100%;
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+}
+
+div.title h1 {
+    color: var(--green);
+    text-align: center;
+    margin-top: 8rem;
+}
+
+.test {
+    display: none;
+    /*visibility: hidden;*/
+}
+
+/* CLASS ACTIVE DIV#FORM */
+.active {
+    display: initial;
+    /*visibility: visible;*/
+} 
+
+div.input-group label {
+    font-size: 2rem;
+    width: 100%;    
+    /* background: -webkit-linear-gradient(rgb(18, 22, 18), rgb(156, 201, 156));
+    background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 1rem;
+}
+
+.input-group .help {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10pt;
+}
+
+.input-group small {
+    font-size: 1.3rem;
+}
+
+/* BUTTONS */
+.input-group.actions button.save {
+    width: 45%;
+    height: 50px;
+
+    border: none;
+
+    color: white;
+    background: var(--green);
+    border-radius: 0.25rem;
+    
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.input-group.actions button.save:hover {
+    background-color: var(--light-green);
+}
+
+.input-group.actions a.cancel {
+    color: red;
+    border: 2px red solid;
+    border-radius: 0.25rem;
+
+    width: 45%;
+    height: 50px;
+
+    cursor: pointer;
+ 
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.input-group.actions a.cancel:hover {
+    background: lightcoral;
+}
+
+.input-group.actions small {
+    font-size: 15pt;
+    font-family: cursive;
+}
+
+/* Edit toast position */
+.toast-custom {
+  top: 50vh;  
+  left: 73vw;
+}
+
+/* RESPONSIVE */
+@media (min-width: 800px){
+    html {
+        font-size: 87.5%;
+    }
+
+    /* #values {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem; // qdo eram 3 cards
+    } */ 
+
+    div.card {
+        width: 30vw;
+    }
+
+    .transaction a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        
+        margin-left: 1rem;
+    }
+}
+  </style>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
