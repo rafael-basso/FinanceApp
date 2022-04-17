@@ -459,11 +459,11 @@ const DOM = {
 
 }
 
-$(function() {
-  $("#toaster").on("click", function() {
-    Calculations.sum()
-  })
-})
+// $(function() {
+//   $("#toaster").on("click", function() {
+//     Calculations.sum()
+//   })
+// })
 
 // trabalhar com o Form
 const Form = {
@@ -519,8 +519,8 @@ const Calculations = {
     document.getElementById('income-display').innerText = income + number
 
     alert(`You have added ${Amount.length} value(s) to your form`)
-    toastr.options.positionClass = "toast-custom"           
-    toastr.success(`You have added ${Amount.length} value(s) to your form`)
+//     toastr.options.positionClass = "toast-custom"           
+//     toastr.success(`You have added ${Amount.length} value(s) to your form`)
 
     return Math.round(income + number, 2)
   },
