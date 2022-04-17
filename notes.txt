@@ -1,0 +1,163 @@
+linear-gradient for FONTS:
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+para deixar container responsivo com:
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+uso o min(90vw, 600px)
+90vw // para qdo tela diminuida
+600px // para qdo full screen
+
+multiplicar tags // section*3
+
+deixar um TABLE estilizada:
+    display: block;
+    width: 100%;
+    border-spacing: 0 0.5rem;
+
+deixar table thead th & table tbody td com:
+padding 1rem 2rem;
+text-align: left;
+
+Alinhar <img> no centro:
+text-align: center; // img tem que estar dentro de um container
+
+opacity sobre containers (colocar opacity < 1 para mudar no :hover)
+table tbody tr {
+    opacity: 0.4;
+}
+table tbody tr:hover {
+    opacity: 1.5;
+}
+
+padding // mover o que esta dentro da box
+margin // mover o que esta fora da caixa (a propria caixa)
+
+**************************************************************************************
+ir para alguma tag especifica na pagina usando <a></a>:
+<a href=""#NAME OF TAG'S ID></a> // colocar o ID da tag onde quero ir
+
+Javascript
+
+1- tirar o conteudo do html do <tbody></tbody> para manipular com JS
+2- criar objeto com os dados que estavam no html dentro do tbody de cada td // const transactions
+3- pegar meus dados do objeto transactions que estao no JS e inserir no HTML, ou seja, substituir os dados no HTML(pegar os tds de um tr somente como modelo ) // DOM.innerHTMLTransaction // deve retornar o const html
+4 - criar a tr onde ira mostrar os dados das tds do innerHTMLTransaction // const addTransaction
+5- inserir os transaction.description, transaction.value e transaction.description.date no const html
+6- selecionar o tbody e incluir os dados do transactions criado no const DOM // transactionContainer: document.querySelector('#data-table tbody'),
+7- adicionar cada elemento do td na tbody criada // DOM.transactionsContainer.appendChild()
+
+2)
+const transactions = [
+//     {
+//         id: 1,
+//         description: 'Luz',
+//         amount: -50000,
+//         date: '23/01/2021'
+//     }, 
+
+3) const DOM = {
+
+    innerHTMLTransaction() { // para substituir os dados da tag <td></td>
+        const html = `
+            <td class="description">Luz</td>
+            <td class="expense">- R$ 1.500,00</td>
+            <td class="date">10/02/2021</td>
+            <td class="imgTable"><img src="./Images/delete.webp" alt="remove transaction"></td>
+        `
+        return html
+    }
+}
+
+4) const DOM = {
+
+    addTransaction(transaction) {
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+    }
+
+5)  innerHTMLTransaction(transaction) {
+        const html = `
+            <td class="description">${transaction.description}</td>
+            <td class="expense">${transaction.amount}</td>
+            <td class="date">${transaction.date}</td>
+            <td class="imgTable">
+                <img src="./Images/normal.cur" alt="remover transacao">
+            </td>
+        `
+        return html
+    }
+
+6) const DOM = {
+    transactionContainer: document.querySelector('#data-table tbody'),
+
+    addTransaction(transaction) {
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+    }
+
+
+7) const DOM = {
+    transactionsContainer: document.querySelector('#data-table tbody'),
+
+    addTransaction(transaction) {
+        //console.log('cheguei aqui')
+        console.log(transaction)
+
+        const tr = document.createElement('tr')
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction)
+
+        //console.log(tr.innerHTML)
+
+        DOM.transactionsContainer.appendChild(tr)
+    },
+
+**************************************************************************
+Colocar o Form para funcionar:
+const Form = {
+    // selecionar os inputs:
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    // Receber os objetos com os valores:
+    getValues() {
+        return {
+            description: Form.description.value,
+            amount: Form.amount.value,
+            date: Form.date.value,
+        }
+    },
+
+}
+
+// realizar SUBMIT no Form:
+<form onsubmit="Form.submit(event)"> </form>
+
+//PARA USAR O const transactions:
+//DOM.addTransaction() // para testar o 'chegue aqui' 
+//DOM.addTransaction(transactions[1]) // para testar o transaction 
+
+//DOM.addTransaction(transactions[0]) // para testar o DOM.transactionsContainer.appendChild(tr) 
+//DOM.addTransaction(transactions[1]) // para testar o DOM.transactionsContainer.appendChild(tr) 
+//DOM.addTransaction(transactions[2]) // para testar o DOM.transactionsContainer.appendChild(tr) 
+
+// for (let i = 0; i < transactions.length; i++) {
+//     DOM.addTransaction(transactions[i])
+// }
+// // Para otimizar o codigo acima passando por cada elemento do array transactions:
+// transactions.forEach(function(transaction) {
+//     DOM.addTransaction(transaction)
+// })
+
+**********************************************************************************
+Validar inputs // <input required>
+
+consigo chamar funcao sem adicionar evento:
+<td "DOM.deleteTransaction(event)" class="date">${transaction.date}</td>
+<td onclick="DOM.deleteTransaction(event)" class="imgTable"><img src="./Images/delete.webp" alt="remove transaction"></td>
