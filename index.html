@@ -521,6 +521,7 @@ const Calculations = {
     Amount.push(number)
     document.getElementById('income-display').innerText = income + number
 
+    alert(`You have added ${Amount.length} value(s) to your form`)
     toastr.options.positionClass = "toast-custom"           
     toastr.success(`You have added ${Amount.length} value(s) to your form`)
 
